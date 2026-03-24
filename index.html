@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claire Morrison — An Operational Builder</title>
+<meta name="description" content="Enterprise technology and transformation leader. I bring the COO and CIO mentality together for a world where teams are made of both people and agents.">
+<meta property="og:title" content="Claire Morrison — An Operational Builder">
+<meta property="og:description" content="Enterprise technology and transformation leader. Track record building great operations on great systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #ffffff;
+    --warm-dark: #2c241c;
+    --warm-mid: #6b5e50;
+    --warm-light: #a09080;
+    --accent: #a0522d;
+    --accent-light: #c9a48a;
+    --accent-bg: #f5ece5;
+    --green: #4a6741;
+    --green-bg: #eaf0e8;
+    --border: #e8e4de;
+    --hero-bg: #faf8f5;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--warm-dark);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 24px 52px;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-name {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--warm-light);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+    color: var(--warm-dark);
+    font-optical-sizing: auto;
+  }
+  .hero .intro {
+    font-size: 16px;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-size: 14px;
+    color: var(--warm-dark);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .hero-meta {
+    font-size: 13px;
+    color: var(--warm-light);
+    margin-bottom: 20px;
+  }
+  .hero-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .hero-links a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+  .hero-links a:hover {
+    border-color: var(--accent);
+  }
+  .hero-links .email {
+    color: var(--warm-light);
+    border-bottom: none;
+  }
+
+  /* Group header */
+  .group-header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 52px 24px 0;
+  }
+  .group-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--warm-dark);
+    letter-spacing: -0.3px;
+  }
+
+  /* Sections */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 44px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-of-type {
+    border-bottom: none;
+  }
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .section-thesis {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--warm-mid);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  /* Cards */
+  .card {
+    margin-bottom: 2px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .card:hover .card-title {
+    color: var(--accent);
+  }
+  .card-header {
+    padding: 20px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .card-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--warm-dark);
+    margin-bottom: 5px;
+    letter-spacing: -0.2px;
+    transition: color 0.15s;
+  }
+  .card-metric {
+    font-size: 14px;
+    color: var(--warm-mid);
+    line-height: 1.5;
+  }
+  .card-companies {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .company-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 3px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    letter-spacing: 0.3px;
+  }
+  .company-pill.philz {
+    background: var(--green-bg);
+    color: var(--green);
+  }
+  .card-arrow {
+    font-size: 14px;
+    color: var(--warm-light);
+    transition: transform 0.2s;
+    margin-top: 6px;
+    flex-shrink: 0;
+    margin-left: 20px;
+  }
+  .card.expanded .card-arrow {
+    transform: rotate(90deg);
+  }
+  .card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .card.expanded .card-detail {
+    max-height: 1200px;
+  }
+  .card-detail-inner {
+    padding: 0 0 24px;
+    font-size: 14px;
+    color: var(--warm-mid);
+    line-height: 1.75;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 4px;
+  }
+  .card-detail-inner p {
+    margin-bottom: 12px;
+  }
+  .card-detail-inner p:last-child {
+    margin-bottom: 0;
+  }
+  .card-detail-inner ul {
+    margin: 8px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .card-detail-inner li {
+    margin-bottom: 8px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .card-detail-inner li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-light);
+  }
+  .card-detail-inner li strong {
+    color: var(--warm-dark);
+    font-weight: 600;
+  }
+  .card-detail-inner .company-tag {
+    font-size: 11px;
+    color: var(--warm-light);
+    font-weight: 500;
+  }
+
+  /* Writing cards */
+  .writing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .writing-card {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+    display: block;
+  }
+  .writing-card:hover {
+    border-color: var(--accent);
+  }
+  .writing-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--warm-dark);
+  }
+  .writing-card p {
+    font-size: 13px;
+    color: var(--warm-mid);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .writing-card .link {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* Journey */
+  .journey-text {
+    font-size: 15px;
+    color: var(--warm-mid);
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+  .journey-text strong {
+    color: var(--warm-dark);
+    font-weight: 600;
+  }
+  .journey-education {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .journey-edu-item {
+    font-size: 14px;
+    color: var(--warm-mid);
+    line-height: 1.5;
+  }
+  .journey-edu-item strong {
+    color: var(--warm-dark);
+    font-weight: 600;
+    display: block;
+  }
+  .journey-edu-item .note {
+    font-size: 12px;
+    color: var(--warm-light);
+  }
+
+  /* Footer */
+  .footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 24px 56px;
+    font-size: 12px;
+    color: var(--warm-light);
+    letter-spacing: 0.5px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero { padding: 48px 20px 36px; }
+    .hero h1 { font-size: 32px; }
+    .hero .intro { font-size: 15px; }
+    .section { padding: 36px 20px; }
+    .card-title { font-size: 17px; }
+    .writing-grid { grid-template-columns: 1fr; }
+    .journey-education { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-name">Claire Morrison</div>
+  <h1>An operational builder.</h1>
+  <p class="intro">My career is built around following my curiosity, from working at a tomato farm in Maine to leading business technology at Guild. I love deeply understanding how things work to create great teams, operations and systems. I combine the COO and CIO mindset for a world where companies run with both people and agents.</p>
+  <div class="hero-links">
+    <a href="https://www.linkedin.com/in/clairem-businesstech" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/clairem08" target="_blank">X</a>
+    <a href="https://www.delphi.ai/claire-morrison" target="_blank">Delphi</a>
+
+  </div>
+</div>
+
+<!-- The Journey -->
+<div class="section">
+  <div class="section-label">Career Short Story</div>
+  <p class="journey-text">I started in management consulting at Parthenon. I wanted to challenge myself in a high-paced, competitive professional environment. But knowledge work didn't feel very real. So I went to a tomato farm in Maine, working with the leadership team at a commercial farm that supplied 20% of New England's tomatoes. I learned a ton, and Maine was lonely.</p>
+  <p class="journey-text">I moved to California to go to grad school and try out a whole new life. Coming from New England, I was amazed by the sunshine and you-can-be-anything Western mindset. From there, I took a role in general management at Big Heart Pet Brands, where I ran the $300m Milk-Bone business. That was great big company training, and I felt ready to build.</p>
+  <p class="journey-text">I joined Philz Coffee to grow the company from $20m to $100m in revenue, and work with some of the best leaders I've known. Retail makes great people leaders. And now I'm at Guild, where I went to learn tech and I lead a 30-person business technology and AI transformation team.</p>
+
+</div>
+
+<!-- Writing & Projects -->
+<div class="section">
+  <div class="section-label">Writing & Projects</div>
+  <div class="writing-grid">
+    <a href="https://technicallycurious.substack.com" class="writing-card" target="_blank">
+      <h3>Technically Curious</h3>
+      <p>AI walkthroughs for people past the basics but not developers. Co-written with Katie Fifer.</p>
+      <div class="link">Read on Substack</div>
+    </a>
+    <a href="https://podcast-app-pink.vercel.app" class="writing-card" target="_blank">
+      <h3>AI News Digest</h3>
+      <p>Curated AI developments from my favorite podcasts, AI generated. AI on AI.</p>
+      <div class="link">Sign up</div>
+    </a>
+  </div>
+</div>
+
+<!-- Professional Highlights -->
+<div class="group-header">
+  <div class="group-title">Work I'm proud of.</div>
+</div>
+
+<!-- S1: AI Transformation -->
+<div class="section">
+  <div class="section-label">AI Transformation</div>
+  <div class="section-thesis">AI adoption isn't a technology challenge. It's a change leadership challenge.</div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Change Leadership & AI Champions Network</div>
+        <div class="card-metric">60 champions across the org driving AI-native ways of working.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>Creating tops-down and bottoms-up change. Leading by example from the top, innovation and use case discovery from anywhere.</p>
+        <ul>
+          <li><strong>AI Champions network</strong>: 60 champions across the org, nominated by leaders and self-selected (open club). Champions carry adoption into every function as peers teaching peers.</li>
+          <li><strong>C-suite modeling</strong>: Hands-on building sessions for executives so leadership can model the behaviors we want to see everywhere.</li>
+          <li><strong>AI-native role expectations</strong>: Role-specific expectation shifts. Leaders: drive change. Builders: build solutions with AI. All roles: learn to do your current role the AI-native way.</li>
+          <li><strong>Teaching</strong>: Company-wide enablement and in-depth training for AI Champions.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Development for Non-Technical Users</div>
+        <div class="card-metric">DevOps and security for non-technical builders.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>Non-engineers across the company build and ship real internal applications with AI coding tools. Goal is enabling true citizen development. We designed the infrastructure to make that safe and scalable.</p>
+        <ul>
+          <li><strong>Development paths</strong>: Direct development in Replit or GitHub-backed repos. Product rolling plans, internal dashboards, and operational tools all built this way.</li>
+          <li><strong>Security model</strong>: Internal behind SSO by default. Automated security scans with API key tracking and revocation as a safety net. External-facing apps require full technical review.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Enterprise AI Portfolio & Architecture</div>
+        <div class="card-metric">Portfolio strategy, spend management, and architecture decisions that keep the company flexible as the stack evolves.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>AI spend is consumption-based and the stack is unbundling. Portfolio strategy, spend management, and architecture all need to evolve together.</p>
+        <ul>
+          <li><strong>Open licensing</strong>: Robust AI productivity portfolio for 800+ users (ChatGPT, Claude Cowork, Codex, Claude Code, Replit, Cursor, etc). We want users consuming tokens.</li>
+          <li><strong>Legacy spend harvesting</strong>: Aggressively reduce legacy vendor seats as users shift to agent interfaces. Savings reinvested into AI.</li>
+          <li><strong>Consumption-based budgeting</strong>: New software spend approach with FP&A to treat AI spend like opex/headcount. Users own their investment decisions for accountability.</li>
+          <li><strong>Architecture philosophy</strong>: Don't lock business logic to one vendor. Keep integrations portable and own the data.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Operational Impact -->
+<div class="section">
+  <div class="section-label">Operational Impact</div>
+  <div class="section-thesis">Technology-enabled operations across every part of the business.</div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Operations</div>
+        <div class="card-metric">Productivity and accuracy gains for customer-facing operations teams.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span> <span class="company-pill philz">Philz</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>Technology-enabled transformation across support, partner operations, store operations, and marketplace delivery.</p>
+        <ul>
+          <li><strong>Customer AI agent</strong>: Increasing share of support chats handled by AI. 24/7 multilingual support for international expansion with zero additional headcount. <span class="company-tag">Guild</span></li>
+          <li><strong>Handle time</strong>: Double-digit reduction with AI-driven call summaries and knowledge search. <span class="company-tag">Guild</span></li>
+          <li><strong>Partner agent</strong>: Custom AI agent for partner record creation and enrichment, reducing manual data entry by 25%. <span class="company-tag">Guild</span></li>
+          <li><strong>Escalation routing</strong>: Automated routing to send customer cases directly to resolving teams. <span class="company-tag">Guild</span></li>
+          <li><strong>Store operations</strong>: Delivered 30+ new store openings with repeatable playbook, reducing time to open by 50%. <span class="company-tag">Philz</span></li>
+          <li><strong>Retail systems</strong>: Implemented tech stack across 70+ stores: POS, inventory, scheduling, analytics. Delivered 5-point margin expansion with systems and ops efficiencies. <span class="company-tag">Philz</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Commercial</div>
+        <div class="card-metric">Technology-enabled process transformation across the full sales and partnership lifecycle.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span> <span class="company-pill philz">Philz</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>Systems and automation driving velocity, capacity, and revenue across pre-sales, post-sales, and direct-to-consumer.</p>
+        <ul>
+          <li><strong>Sales velocity</strong>: Contract lifecycle management and RFP solutions reducing lead-to-contract steps by 40%. <span class="company-tag">Guild</span></li>
+          <li><strong>Partner onboarding</strong>: New onboarding portal reducing manual data entry for new parters by 25%+. <span class="company-tag">Guild</span></li>
+          <li><strong>Account intelligence</strong>: Data connectors and agent skills to synthesize account data across Salesforce, email, Slack, and Gong. <span class="company-tag">Guild</span></li>
+          <li><strong>E-commerce P&L</strong>: Grew e-commerce business to 25% of company profit. <span class="company-tag">Philz</span></li>
+          <li><strong>Mobile ordering</strong>: Launched custom mobile ordering platform delivering 20% of company revenue. <span class="company-tag">Philz</span></li>
+          <li><strong>Product innovation</strong>: Developed new product innovation cycle driving 3-point comp sales improvement. <span class="company-tag">Philz</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">G&A</div>
+        <div class="card-metric">Automate core financial and people operations to scale without proportional headcount growth.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>Process automation and systems modernization across finance, accounting, and people operations.</p>
+        <ul>
+          <li><strong>Billing automation</strong>: Enabled 300% payment volume growth without additional headcount requirements.</li>
+          <li><strong>People operations</strong>: Implemented Workday.</li>
+          <li><strong>M&A integration</strong>: Technology integration within 60 days of close.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: Building & Scaling -->
+<div class="section">
+  <div class="section-label">Building & Scaling</div>
+  <div class="section-thesis">I love building from the ground up. I join early-stage or greenfield situations and establish high-performing teams.</div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Guild: Founded 30-Person Function</div>
+        <div class="card-metric">Building an enterprise technology team for the agent age. Established the function, scaling through 175%+ revenue growth.</div>
+        <div class="card-companies"><span class="company-pill">Guild</span> <span class="company-tag" style="font-size:11px;color:var(--warm-light);">Oct 2021 – present</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>Founding operations hire. C-suite partner on technology and operational transformation.</p>
+        <ul>
+          <li><strong>Team</strong>: 30 people organized into three pillars: core business systems, IT & agent infrastructure, AI & transformation.</li>
+          <li><strong>Org model</strong>: Strategic partnership, not feature factory. Deployed solution architects partner with operating leaders to deliver systems transformation and business outcomes.</li>
+          <li><strong>Delivery</strong>: Sprints and velocity metrics for continuous deployment.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="this.classList.toggle('expanded')">
+    <div class="card-header">
+      <div>
+        <div class="card-title">Philz Coffee: 5x Revenue Growth</div>
+        <div class="card-metric">First ops hire. Built the technology and operations function from $20m to $100m in revenue.</div>
+        <div class="card-companies"><span class="company-pill philz">Philz</span> <span class="company-tag" style="font-size:11px;color:var(--warm-light);">2015 – 2021</span></div>
+      </div>
+      <div class="card-arrow">▸</div>
+    </div>
+    <div class="card-detail">
+      <div class="card-detail-inner">
+        <p>First central operations hire. Reported to CEO, presented on ops outcomes at quarterly board meetings.</p>
+        <ul>
+          <li><strong>Function building</strong>: Built central operations and retail systems teams from scratch — retail ops, reporting and analytics, retail technology, new store openings, e-commerce.</li>
+          <li><strong>Field leadership</strong>: Regional manager for DC market leading 75-person field team.</li>
+          <li><strong>COVID crisis</strong>: Deployed delivery and curbside capabilities. Reduced costs 60%. Personally provided on-call coverage for store IT support.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Education -->
+<div class="section">
+  <div class="section-label">Education</div>
+  <div class="journey-education">
+    <div class="journey-edu-item">
+      <strong>Stanford GSB</strong>
+      MBA, 2013
+      <span class="note">Arjay Miller Scholar (top 10%) · Arbuckle Leadership Fellow</span>
+    </div>
+    <div class="journey-edu-item">
+      <strong>Amherst College</strong>
+      BA Economics, summa cum laude, 2008
+      <span class="note">Phi Beta Kappa · Varsity Crew</span>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  &copy; Claire Morrison
+</div>
+
+</body>
+</html>
