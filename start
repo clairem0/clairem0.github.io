@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+SITE_PORT="${SITE_PORT:-8791}"
+SITE_URL="http://127.0.0.1:$SITE_PORT/"
+
+usage() {
+  cat <<'EOF'
+Usage:
+  ./start edit
+  ./start preview
+  ./start publish-check
+
+Environment:
+  SITE_PORT=8792 ./start edit
+EOF
+}
+
+start_edit() {
+  echo "Starting editable homepage at $SITE_URL"
+  echo "Press Ctrl-C to stop the server."
+  exec python3 "$ROOT_DIR/edit_site.py" "$SITE_PORT"
+}
+
+start_preview() {
+  echo "Starting clean preview at $SITE_URL"
+  echo "Press Ctrl-C to stop the server."
+  exec python3 -m http.server "$SITE_PORT" --bind 127.0.0.1 --directory "$ROOT_DIR"
+}
+
+case "${1:-}" in
+  edit)
+    start_edit
+    ;;
+  preview)
+    start_preview
+    ;;
+  publish-check)
+    exec python3 "$ROOT_DIR/edit_site.py" --check-publish
+    ;;
+  -h|--help|help|"")
+    usage
+    ;;
+  *)
+    echo "Unknown command: $1" >&2
+    usage >&2
+    exit 2
+    ;;
+esac
